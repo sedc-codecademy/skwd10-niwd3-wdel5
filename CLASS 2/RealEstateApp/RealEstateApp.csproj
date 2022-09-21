@@ -50,12 +50,26 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\background.jpg" />
+	  <None Remove="Resources\Images\bath.png" />
+	  <None Remove="Resources\Images\bed.png" />
+	  <None Remove="Resources\Images\house.png" />
+	  <None Remove="Resources\Images\img0.png" />
+	  <None Remove="Resources\Raw\estates.json" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\EstatesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties resources_4raw_4estates_1json__JsonSchema="https://docs.strmprivacy.io/jsonschema/BatchJob.json" /></VisualStudio></ProjectExtensions>
 
 </Project>
