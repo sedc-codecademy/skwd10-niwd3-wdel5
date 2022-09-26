@@ -30,5 +30,17 @@ namespace RealEstateApp.Services
 
             return image;
         }
+
+        public List<string> GetImages(int count)
+        {
+            var images = new List<string>();
+
+            for(int i = 0; i < count; i++)
+            {
+                images.Add(GetImage());
+            }
+
+            return images;
+        }
     }
 }

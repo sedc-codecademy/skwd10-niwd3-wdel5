@@ -9,5 +9,7 @@ namespace RealEstateApp.Interfaces
     public interface IImageProvider
     {
         string GetImage();
+
+        List<string> GetImages(int count);
     }
 }
