@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SandboxApp.Layouts.StackLayoutPage"
+             Title="StackLayoutPage">
+    <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="5">
+        <Button Text="Click Me!"/>
+        <Button Text="Click Me!"/>
+        <Button Text="Click Me!"/>
+        <Button Text="Click Me!"/>
+        <Button Text="Click Me!"/>
+        <Button Text="Click Me!"/>
+        <HorizontalStackLayout Spacing="5">
+            <Label Text="Vertical"/>
+            <Label Text="Vertical"/>
+            <Label Text="Vertical"/>
+            <Label Text="Vertical"/>
+            <Label Text="Vertical"/>
+            <Label Text="Vertical"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
