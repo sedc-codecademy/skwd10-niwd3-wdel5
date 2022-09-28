@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealEstateApp.Views.LoginPage"
-             Title="LoginPage">
+             Title="LoginPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
     <Grid>
         <Image Source="background.jpg"
                HorizontalOptions="FillAndExpand"
@@ -26,7 +28,8 @@
                 <Entry Placeholder="Password"
                    BackgroundColor="White"
                IsPassword="True"/>
-                <Button Text="Login"/>
+                <Button Text="Login"
+                        Clicked="LoginClicked"/>
             </VerticalStackLayout>
         </Frame>
     </Grid>

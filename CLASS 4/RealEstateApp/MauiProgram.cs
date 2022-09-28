@@ -22,6 +22,7 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<LoginPage>();
 		builder.Services.AddTransient<EstatesPage>();
+		builder.Services.AddTransient<EstateDetailsPage>();
 
 		return builder.Build();
 	}

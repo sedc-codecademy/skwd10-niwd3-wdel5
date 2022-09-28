@@ -47,5 +47,18 @@ namespace RealEstateApp.Services
 
             return estates;
         }
+
+        public Task<bool> DeleteEstateById(int id)
+        {
+            var estate = _estates.FirstOrDefault(x => x.Id == id);
+
+            if (estate == null)
+            {
+                return Task.FromResult(false);
+            }
+
+            _estates.Remove(estate);
+            return Task.FromResult(true);
+        }
     }
 }

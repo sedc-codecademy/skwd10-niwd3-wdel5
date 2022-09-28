@@ -1,6 +1,5 @@
 ﻿
 using RealEstateApp.Models;
-using System.Threading.Tasks;
 
 namespace RealEstateApp.Interfaces
 {
@@ -9,5 +8,7 @@ namespace RealEstateApp.Interfaces
         Task<List<Estate>> GetEstates();
 
         Task<Estate> GetEstateById(int id);
+
+        Task<bool> DeleteEstateById(int id);
     }
 }

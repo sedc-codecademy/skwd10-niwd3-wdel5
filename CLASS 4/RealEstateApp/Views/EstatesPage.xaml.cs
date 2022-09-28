@@ -20,4 +20,16 @@ public partial class EstatesPage : ContentPage
 			collectionView.ItemsSource = task.Result;
 		});
 	}
+
+	private void EstatesCollectionSelectionChange(object sender, SelectionChangedEventArgs e)
+	{
+		if (collectionView.SelectedItem == null)
+		{
+			return;
+		}
+
+		var selectedEstate = (Estate)collectionView.SelectedItem;
+		Shell.Current.GoToAsync($"{nameof(EstateDetailsPage)}?EstateId={selectedEstate.Id}");
+		collectionView.SelectedItem = null;
+	}
 }

@@ -17,11 +17,11 @@
                 <Frame Padding="0"
                Margin="0,30,0,0">
                     <Grid RowDefinitions="Auto, Auto">
-                        <Image Source="img0.png"
+                        <Image x:Name="Photo"
                    HeightRequest="150"
                        Aspect="AspectFill"/>
                         <Label Grid.Row="0"
-                    Text="Estate Name"
+                               x:Name="EstateName"
                        FontSize="24"
                        VerticalOptions="End"
                        TextColor="White"
@@ -36,7 +36,7 @@
                             <Image Source="address.png"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label Text="Address of estate"
+                            <Label x:Name="Address"
                            Grid.Column="1"
                            FontSize="18"/>
 
@@ -44,7 +44,7 @@
                            Grid.Row="1"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label Text="$ 4243"
+                            <Label x:Name="Price"
                            Grid.Row="1"
                            Grid.Column="1"
                            FontSize="18"/>
@@ -59,13 +59,13 @@
                                            Grid.ColumnSpan="2">
                                 <Image Source="bed.png"
                                    HeightRequest="15"/>
-                                <Label Text="3 bedroom"/>
+                                <Label x:Name="Bedrooms"/>
                                 <Image Source="bath.png"
                                    HeightRequest="15"/>
-                                <Label Text="2 bathrooms"/>
+                                <Label x:Name="Bathrooms"/>
                                 <Image Source="house.png"
                                    HeightRequest="15"/>
-                                <Label Text="90 m²"/>
+                                <Label x:Name="Area"/>
                             </HorizontalStackLayout>
                         </Grid>
                     </Grid>
@@ -101,7 +101,7 @@
                             <Image Source="user.png"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label Text="Ivan Djikovski"
+                            <Label x:Name="ContactPersonName"
                            Grid.Column="1"
                            FontSize="18"/>
 
@@ -109,7 +109,7 @@
                            Grid.Row="1"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label Text="070 123 456"
+                            <Label x:Name="ContactPersonPhone"
                            Grid.Row="1"
                            Grid.Column="1"
                            FontSize="18"/>
@@ -118,7 +118,7 @@
                            Grid.Row="2"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label Text="ivan.dzikovski@gmail.com"
+                            <Label x:Name="ContactPersonEmail"
                            Grid.Row="2"
                            Grid.Column="1"
                            FontSize="18"/>
@@ -141,7 +141,7 @@
                        Grid.Row="2"
                Margin="0,30,0,0">
                     <Grid>
-                        <CarouselView x:Name="imageCarousel"
+                        <CarouselView x:Name="Photos"
                                       IndicatorView="indicator"
                                       >
                             <CarouselView.ItemTemplate>
