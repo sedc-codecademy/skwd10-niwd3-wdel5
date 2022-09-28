@@ -7,9 +7,44 @@
     xmlns:layouts="clr-namespace:SandboxApp.Layouts"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate layouts:FlexLayoutPage}"
-        Route="MainPage" />
+    <!--<FlyoutItem Title="Main Page"
+                Icon="dotnet_bot.svg"
+                Route="MainPage">
+        <ShellContent
+        ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Layouts"
+                Icon="dotnet_bot.svg"
+                Route="Layouts">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate layouts:StackLayoutPage}"
+                          Title="Stack"/>
+            <ShellContent ContentTemplate="{DataTemplate layouts:GridPage}"
+                          Title="Grid"/>
+            <ShellContent ContentTemplate="{DataTemplate layouts:FlexLayoutPage}"
+                          Title="Flex"/>
+        </Tab>
+
+    </FlyoutItem>-->
+
+    <TabBar>
+        <Tab Title="Main Page"
+             Icon="dotnet_bot.svg">
+            <ShellContent
+            ContentTemplate="{DataTemplate local:MainPage}" 
+                Route="MainPage"/>
+        </Tab>
+
+        <Tab Title="Layours"
+             Icon="dotnet_bot.svg">
+            <ShellContent ContentTemplate="{DataTemplate layouts:StackLayoutPage}"
+                          Title="Stack"/>
+            <ShellContent ContentTemplate="{DataTemplate layouts:GridPage}"
+                          Title="Grid"/>
+            <ShellContent ContentTemplate="{DataTemplate layouts:FlexLayoutPage}"
+                          Title="Flex"/>
+        </Tab>
+    </TabBar>
 
 </Shell>
