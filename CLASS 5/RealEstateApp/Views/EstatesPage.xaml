@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.Views.EstatesPage"
+             Title="EstatesPage">
+    <Grid>
+        <Image Source="background.jpg"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               Aspect="AspectFill"
+               Opacity=".2"/>
+        <CollectionView x:Name="collectionView"
+                        SelectionChanged="EstatesCollectionSelectionChange"
+                        SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItem Text="Delete" IconImageSource="home"/>
+                            <SwipeItem Text="Delete" IconImageSource="home"/>
+                        </SwipeView.RightItems>
+                        <Border Margin="15, 10"
+                            Padding="15"
+                            StrokeShape="RoundRectangle 10">
+                            <VerticalStackLayout Spacing="10">
+                                <Frame Padding="0">
+                                    <Image Source="{Binding Photo}"/>
+                                </Frame>
+                                <Label Text="{Binding EstateName}"
+                               FontSize="22"/>
+                                <Label Text="{Binding Price, StringFormat='$ {0}'}"
+                               FontSize="18"
+                               TextColor="DarkBlue"/>
+                                <BoxView HeightRequest="1"
+                                 Color="LightGray"/>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Image Source="bed.png"
+                                   HeightRequest="15"/>
+                                    <Label Text="{Binding RoomNumber, StringFormat='{0} bedroom'}"/>
+                                    <Image Source="bath.png"
+                                   HeightRequest="15"/>
+                                    <Label Text="{Binding BathroomNumber, StringFormat='{0} bathrooms'}"/>
+                                    <Image Source="house.png"
+                                   HeightRequest="15"/>
+                                    <Label Text="{Binding Area, StringFormat='{0} m²'}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
