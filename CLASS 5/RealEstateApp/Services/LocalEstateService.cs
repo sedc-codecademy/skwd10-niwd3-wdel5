@@ -32,7 +32,7 @@ namespace RealEstateApp.Services
 			}
         }
 
-        public Task<Estate> GetEstateById(int id)
+        public Task<Estate> GetEstateById(long id)
         {
             return Task.FromResult(_estates.FirstOrDefault(x => x.Id == id));
         }
@@ -48,7 +48,7 @@ namespace RealEstateApp.Services
             return estates;
         }
 
-        public Task<bool> DeleteEstateById(int id)
+        public Task<bool> DeleteEstateById(long id)
         {
             var estate = _estates.FirstOrDefault(x => x.Id == id);
 

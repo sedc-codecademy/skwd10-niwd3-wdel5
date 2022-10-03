@@ -1,5 +1,6 @@
 ﻿using RealEstateApp.Interfaces;
 using RealEstateApp.Services;
+using RealEstateApp.ViewModels;
 using RealEstateApp.Views;
 
 namespace RealEstateApp;
@@ -23,6 +24,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<LoginPage>();
 		builder.Services.AddTransient<EstatesPage>();
 		builder.Services.AddTransient<EstateDetailsPage>();
+
+		builder.Services.AddTransient<LoginViewModel>();
 
 		return builder.Build();
 	}

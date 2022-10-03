@@ -7,8 +7,8 @@ namespace RealEstateApp.Interfaces
     {
         Task<List<Estate>> GetEstates();
 
-        Task<Estate> GetEstateById(int id);
+        Task<Estate> GetEstateById(long id);
 
-        Task<bool> DeleteEstateById(int id);
+        Task<bool> DeleteEstateById(long id);
     }
 }

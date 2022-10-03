@@ -14,10 +14,15 @@
                         SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <SwipeView>
+                    <SwipeView SwipeStarted="SwipeView_SwipeStarted"
+                               SwipeEnded="SwipeView_SwipeEnded">
                         <SwipeView.RightItems>
-                            <SwipeItem Text="Delete" IconImageSource="home"/>
-                            <SwipeItem Text="Delete" IconImageSource="home"/>
+                            <SwipeItem IconImageSource="pencil"
+                                       BackgroundColor="Transparent"
+                                       Invoked="EditInvoked"/>
+                            <SwipeItem IconImageSource="delete"
+                                       BackgroundColor="Transparent"
+                                       Invoked="DeleteInvoked"/>
                         </SwipeView.RightItems>
                         <Border Margin="15, 10"
                             Padding="15"

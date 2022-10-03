@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealEstateApp.Views.LoginPage"
+             xmlns:viewmodels="clr-namespace:RealEstateApp.ViewModels"
+             x:DataType="viewmodels:LoginViewModel"
              Title="LoginPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False">
@@ -24,12 +26,17 @@
                          Spacing="10"
                          Margin="20">
                 <Entry Placeholder="Username"
-                   BackgroundColor="White"/>
+                   BackgroundColor="White"
+                       Text="{Binding Username}"/>
                 <Entry Placeholder="Password"
                    BackgroundColor="White"
+                       Text="{Binding Password}"
                IsPassword="True"/>
                 <Button Text="Login"
-                        Clicked="LoginClicked"/>
+                        Command="{Binding LoginCommand}"/>
+                <Label Text="Invalid username or password"
+                       IsVisible="{Binding NotValid}"
+                       TextColor="Red"/>
             </VerticalStackLayout>
         </Frame>
     </Grid>

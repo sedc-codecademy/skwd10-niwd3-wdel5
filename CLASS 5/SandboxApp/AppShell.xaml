@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SandboxApp"
+    xmlns:mvvm="clr-namespace:SandboxApp.MVVM"
     xmlns:layouts="clr-namespace:SandboxApp.Layouts"
     Shell.FlyoutBehavior="Disabled">
 
@@ -36,7 +37,7 @@
                 Route="MainPage"/>
         </Tab>
 
-        <Tab Title="Layours"
+        <Tab Title="Layouts"
              Icon="dotnet_bot.svg">
             <ShellContent ContentTemplate="{DataTemplate layouts:StackLayoutPage}"
                           Title="Stack"/>
@@ -44,6 +45,12 @@
                           Title="Grid"/>
             <ShellContent ContentTemplate="{DataTemplate layouts:FlexLayoutPage}"
                           Title="Flex"/>
+        </Tab>
+
+        <Tab Title="MVVM"
+             Icon="dotnet_bot">
+            <ShellContent ContentTemplate="{DataTemplate mvvm:FullNamePage}"
+                          Route="FullNamePage"/>
         </Tab>
     </TabBar>
 
