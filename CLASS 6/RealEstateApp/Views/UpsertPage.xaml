@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.Views.UpsertPage"
+             ControlTemplate="{StaticResource backgroundTemplate}"
+             Title="UpsertPage">
+    <ContentPage.Resources>
+        <Style x:Key="whiteBackgroundEntry" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="White"/>
+        </Style>
+        <Style x:Key="numericEntry" TargetType="Entry" BasedOn="{StaticResource whiteBackgroundEntry}">
+            <Setter Property="Keyboard" Value="Numeric"/>
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Frame Margin="15"
+                   VerticalOptions="Start"
+               BackgroundColor="#80FFFFFF">
+            <VerticalStackLayout Spacing="10">
+                <Entry Placeholder="Estate Name"
+                           Style="{StaticResource whiteBackgroundEntry}"/>
+                <Entry Placeholder="Address"
+                           Style="{StaticResource whiteBackgroundEntry}"/>
+                <Entry Placeholder="Price"
+                           Style="{StaticResource numericEntry}"/>
+                <Entry Placeholder="Room Number"
+                           Style="{StaticResource numericEntry}"/>
+                <Entry Placeholder="Bathrooms"
+                           Style="{StaticResource numericEntry}"/>
+                <Entry Placeholder="Area"
+                           Style="{StaticResource numericEntry}"/>
+                <Entry Placeholder="Contact Name"
+                           Style="{StaticResource whiteBackgroundEntry}"/>
+                <Entry Placeholder="Contact Phone"
+                           Style="{StaticResource whiteBackgroundEntry}"
+                           Keyboard="Telephone"/>
+                <Entry Placeholder="Contact Email"
+                           Style="{StaticResource whiteBackgroundEntry}"/>
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

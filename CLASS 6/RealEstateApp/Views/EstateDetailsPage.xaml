@@ -2,178 +2,184 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealEstateApp.Views.EstateDetailsPage"
+             xmlns:viewmodels="clr-namespace:RealEstateApp.ViewModels"
+             ControlTemplate="{StaticResource backgroundTemplate}"
+             x:DataType="viewmodels:EstateDetailsViewModel"
              Title="EstateDetailsPage">
-    <Grid>
-        <Image Source="background.jpg"
-               HorizontalOptions="FillAndExpand"
-               VerticalOptions="FillAndExpand"
-               Aspect="AspectFill"
-               Opacity=".2"/>
-        <ScrollView>
-            <Grid VerticalOptions="Start"
+    <ScrollView>
+        <Grid VerticalOptions="Start"
                 Padding="15,10"
                   RowSpacing="10"
                   RowDefinitions="Auto, Auto, Auto">
-                <Frame Padding="0"
+            <Frame Padding="0"
                Margin="0,30,0,0">
-                    <Grid RowDefinitions="Auto, Auto">
-                        <Image x:Name="Photo"
+                <Grid RowDefinitions="Auto, Auto">
+                    <Image x:Name="Photo"
+                               Source="{Binding Photo}"
                    HeightRequest="150"
                        Aspect="AspectFill"/>
-                        <Label Grid.Row="0"
+                    <Label Grid.Row="0"
                                x:Name="EstateName"
+                               Text="{Binding EstateName}"
                        FontSize="24"
                        VerticalOptions="End"
                        TextColor="White"
                        Margin="10,5"/>
 
-                        <Grid Grid.Row="1"
+                    <Grid Grid.Row="1"
                       ColumnDefinitions="Auto, *"
                       RowDefinitions="Auto, Auto, Auto, Auto"
                       ColumnSpacing="15"
                       RowSpacing="15"
                       Margin="15">
-                            <Image Source="address.png"
+                        <Image Source="address.png"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label x:Name="Address"
+                        <Label x:Name="Address"
+                                   Text="{Binding Address}"
                            Grid.Column="1"
                            FontSize="18"/>
 
-                            <Image Source="price.png"
+                        <Image Source="price.png"
                            Grid.Row="1"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label x:Name="Price"
+                        <Label x:Name="Price"
+                                   Text="{Binding Price}"
                            Grid.Row="1"
                            Grid.Column="1"
                            FontSize="18"/>
 
-                            <BoxView HeightRequest="1"
+                        <BoxView HeightRequest="1"
                                      Grid.Row="2"
                                      Grid.ColumnSpan="2"
                                  Color="LightGray"/>
 
-                            <HorizontalStackLayout Spacing="10"
+                        <HorizontalStackLayout Spacing="10"
                                            Grid.Row="3"
                                            Grid.ColumnSpan="2">
-                                <Image Source="bed.png"
+                            <Image Source="bed.png"
                                    HeightRequest="15"/>
-                                <Label x:Name="Bedrooms"/>
-                                <Image Source="bath.png"
+                            <Label x:Name="Bedrooms"
+                                       Text="{Binding RoomNumber, StringFormat='{0} bedroom'}"/>
+                            <Image Source="bath.png"
                                    HeightRequest="15"/>
-                                <Label x:Name="Bathrooms"/>
-                                <Image Source="house.png"
+                            <Label x:Name="Bathrooms"
+                                       Text="{Binding BathroomNumber, StringFormat='{0} bathrooms'}"/>
+                            <Image Source="house.png"
                                    HeightRequest="15"/>
-                                <Label x:Name="Area"/>
-                            </HorizontalStackLayout>
-                        </Grid>
+                            <Label x:Name="Area"
+                                       Text="{Binding Area, StringFormat='{0} m²'}"/>
+                        </HorizontalStackLayout>
                     </Grid>
-                </Frame>
+                </Grid>
+            </Frame>
 
-                <Frame HeightRequest="60"
+            <Frame HeightRequest="60"
                WidthRequest="60"
                CornerRadius="30"
                Padding="0"
                VerticalOptions="Start">
-                    <Image Source="home.png"
+                <Image Source="home.png"
                    HeightRequest="30"
                    Opacity=".5"/>
-                </Frame>
+            </Frame>
 
-                <Frame Padding="0"
+            <Frame Padding="0"
                        Grid.Row="1"
                Margin="0,30,0,0">
-                    <Grid RowDefinitions="Auto, Auto">
-                        <Label Grid.Row="0"
+                <Grid RowDefinitions="Auto, Auto">
+                    <Label Grid.Row="0"
                         Text="Estate Name"
                        FontSize="24"
                        VerticalOptions="End"
                        TextColor="White"
                        Margin="10,5"/>
 
-                        <Grid Grid.Row="1"
+                    <Grid Grid.Row="1"
                       ColumnDefinitions="Auto, *"
                       RowDefinitions="Auto, Auto, Auto"
                       ColumnSpacing="15"
                       RowSpacing="15"
                               Margin="15, 0, 15, 15">
-                            <Image Source="user.png"
+                        <Image Source="user.png"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label x:Name="ContactPersonName"
+                        <Label x:Name="ContactPersonName"
+                                   Text="{Binding ContactPersonName}"
                            Grid.Column="1"
                            FontSize="18"/>
 
-                            <Image Source="call.png"
+                        <Image Source="call.png"
                            Grid.Row="1"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label x:Name="ContactPersonPhone"
+                        <Label x:Name="ContactPersonPhone"
+                                   Text="{Binding ContactPersonPhone}"
                            Grid.Row="1"
                            Grid.Column="1"
                            FontSize="18"/>
 
-                            <Image Source="email.png"
+                        <Image Source="email.png"
                            Grid.Row="2"
                            HeightRequest="20"
                            Opacity=".5"/>
-                            <Label x:Name="ContactPersonEmail"
+                        <Label x:Name="ContactPersonEmail"
+                                   Text="{Binding ContactPersonEmail}"
                            Grid.Row="2"
                            Grid.Column="1"
                            FontSize="18"/>
-                        </Grid>
                     </Grid>
-                </Frame>
+                </Grid>
+            </Frame>
 
-                <Frame HeightRequest="60"
+            <Frame HeightRequest="60"
                        Grid.Row="1"
                    WidthRequest="60"
                    CornerRadius="30"
                    Padding="0"
-                   VerticalOptions="Start"> 
-                    <Image Source="call.png"
+                   VerticalOptions="Start">
+                <Image Source="call.png"
                    HeightRequest="30"
                    Opacity=".5"/>
-                </Frame>
+            </Frame>
 
-                <Frame Padding="0"
+            <Frame Padding="0"
                        Grid.Row="2"
                Margin="0,30,0,0">
-                    <Grid>
-                        <CarouselView x:Name="Photos"
-                                      IndicatorView="indicator"
-                                      >
-                            <CarouselView.ItemTemplate>
-                                <DataTemplate>
-                                    <Frame Padding="0"
+                <Grid>
+                    <CarouselView x:Name="Photos"
+                                      ItemsSource="{Binding Photos}"
+                                      IndicatorView="indicator">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Padding="0"
                                            Margin="10">
                                     <Image Source="{Binding .}"/>
-                                    </Frame>
-                                </DataTemplate>
-                            </CarouselView.ItemTemplate>
-                        </CarouselView>
-                        <IndicatorView x:Name="indicator"
+                                </Frame>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="indicator"
                                        IndicatorsShape="Circle"
                                        IndicatorColor="LightGray"
                                        SelectedIndicatorColor="DarkGray"
                                        HorizontalOptions="Center"
                                        VerticalOptions="End"
                                        HeightRequest="30"/>
-                    </Grid>
-                </Frame>
+                </Grid>
+            </Frame>
 
-                <Frame HeightRequest="60"
+            <Frame HeightRequest="60"
                        Grid.Row="2"
                    WidthRequest="60"
                    CornerRadius="30"
                    Padding="0"
                    VerticalOptions="Start">
-                    <Image Source="image.png"
+                <Image Source="image.png"
                    HeightRequest="30"
                    Opacity=".5"/>
-                </Frame>
-            </Grid>
-        </ScrollView>
-    </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
 </ContentPage>

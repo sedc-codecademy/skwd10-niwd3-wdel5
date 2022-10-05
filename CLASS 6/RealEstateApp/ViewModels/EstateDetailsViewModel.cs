@@ -1,0 +1,81 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using RealEstateApp.Interfaces;
+using RealEstateApp.Models;
+
+namespace RealEstateApp.ViewModels
+{
+    [QueryProperty(nameof(EstateId), nameof(EstateId))]
+    public partial class EstateDetailsViewModel : ObservableObject
+    {
+        private readonly IEstateService _estateService;
+
+        private int _estateId;
+        public int EstateId
+        {
+            get => _estateId;
+            set
+            {
+                _estateId = value;
+                Task.Run(() => _estateService.GetEstateById(value)).ContinueWith(InitView);
+            }
+        }
+
+        [ObservableProperty]
+        private string _photo;
+
+        [ObservableProperty]
+        private string _estateName;
+
+        [ObservableProperty]
+        private string _address;
+
+        [ObservableProperty]
+        private int _price;
+
+        [ObservableProperty]
+        private int _roomNumber;
+
+        [ObservableProperty]
+        private int _bathroomNumber;
+
+        [ObservableProperty]
+        private int _area;
+
+        [ObservableProperty]
+        private List<string> _photos;
+
+        [ObservableProperty]
+        private string _contactPersonName;
+
+        [ObservableProperty]
+        private string _contactPersonEmail;
+
+        [ObservableProperty]
+        private string _contactPersonPhone;
+
+        public EstateDetailsViewModel(IEstateService estateService)
+        {
+            _estateService = estateService;
+        }
+
+        private void InitView(Task<Estate> task)
+        {
+            var estate = task.Result;
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Photo = estate.Photo;
+                EstateName = estate.EstateName;
+                Address = estate.Address;
+                Price = estate.Price;
+                RoomNumber = estate.RoomNumber;
+                BathroomNumber = estate.BathroomNumber;
+                Area = estate.Area;
+                Photos = estate.Photos;
+                ContactPersonName = estate.ContactPersonName;
+                ContactPersonEmail = estate.ContactPersonEmail;
+                ContactPersonPhone = estate.ContactPersonPhone;
+            });
+        }
+    }
+}
