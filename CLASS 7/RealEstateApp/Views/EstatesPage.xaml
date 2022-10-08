@@ -19,19 +19,25 @@
                 <SwipeView SwipeStarted="SwipeView_SwipeStarted"
                                SwipeEnded="SwipeView_SwipeEnded">
                     <SwipeView.RightItems>
-                        <SwipeItem IconImageSource="pencil"
+                        <SwipeItems>
+                            <SwipeItem IconImageSource="pencil"
                                        BackgroundColor="Transparent"
-                                       Invoked="EditInvoked"/>
-                        <SwipeItem IconImageSource="delete"
+                                       Command="{Binding EditCommand, 
+                                Source={x:RelativeSource AncestorType={x:Type viewmodels:EstatesViewModel}}}"
+                                       CommandParameter="{Binding .}"/>
+                            <SwipeItem IconImageSource="delete"
                                        BackgroundColor="Transparent"
-                                       Command="{Binding DeleteCommand, Source={x:RelativeSource AncestorType={x:Type viewmodels:EstatesViewModel}}}"/>
+                                       Command="{Binding DeleteCommand, 
+                                Source={x:RelativeSource AncestorType={x:Type viewmodels:EstatesViewModel}}}"
+                                       CommandParameter="{Binding .}"/>
+                        </SwipeItems>
                     </SwipeView.RightItems>
                     <Border Margin="15, 10"
                             Padding="15"
                             StrokeShape="RoundRectangle 10">
                         <VerticalStackLayout Spacing="10">
                             <Frame Padding="0">
-                                <Image Source="{Binding Photo}"/>
+                                <Image Source="{Binding Photo, TargetNullValue=estate}"/>
                             </Frame>
                             <Label Text="{Binding EstateName}"
                                FontSize="22"/>

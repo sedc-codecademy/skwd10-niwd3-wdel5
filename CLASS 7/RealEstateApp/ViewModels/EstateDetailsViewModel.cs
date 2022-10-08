@@ -1,11 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using RealEstateApp.Interfaces;
+﻿using RealEstateApp.Interfaces;
 using RealEstateApp.Models;
 
 namespace RealEstateApp.ViewModels
 {
     [QueryProperty(nameof(EstateId), nameof(EstateId))]
-    public partial class EstateDetailsViewModel : ObservableObject
+    public partial class EstateDetailsViewModel : Estate
     {
         private readonly IEstateService _estateService;
 
@@ -19,39 +18,6 @@ namespace RealEstateApp.ViewModels
                 Task.Run(() => _estateService.GetEstateById(value)).ContinueWith(InitView);
             }
         }
-
-        [ObservableProperty]
-        private string _photo;
-
-        [ObservableProperty]
-        private string _estateName;
-
-        [ObservableProperty]
-        private string _address;
-
-        [ObservableProperty]
-        private int _price;
-
-        [ObservableProperty]
-        private int _roomNumber;
-
-        [ObservableProperty]
-        private int _bathroomNumber;
-
-        [ObservableProperty]
-        private int _area;
-
-        [ObservableProperty]
-        private List<string> _photos;
-
-        [ObservableProperty]
-        private string _contactPersonName;
-
-        [ObservableProperty]
-        private string _contactPersonEmail;
-
-        [ObservableProperty]
-        private string _contactPersonPhone;
 
         public EstateDetailsViewModel(IEstateService estateService)
         {

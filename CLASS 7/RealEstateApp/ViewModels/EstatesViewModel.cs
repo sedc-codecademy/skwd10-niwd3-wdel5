@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.Controls;
 using RealEstateApp.Interfaces;
 using RealEstateApp.Models;
 using RealEstateApp.Views;
@@ -8,9 +7,22 @@ using System.Collections.ObjectModel;
 
 namespace RealEstateApp.ViewModels
 {
+    [QueryProperty(nameof(Update), nameof(Update))]
     public partial class EstatesViewModel : ObservableObject
     {
         private readonly IEstateService _estateService;
+        private bool _notDeleting = true;
+
+        private bool _update;
+        public bool Update
+        {
+            get => _update;
+            set
+            {
+                _update = value;
+                LoadData();
+            }
+        }
 
         public bool IsSwiping { get; set; }
 
@@ -22,8 +34,13 @@ namespace RealEstateApp.ViewModels
 
         public EstatesViewModel(IEstateService estateService)
         {
-            estateService.GetEstates().ContinueWith(SetEstates);
             _estateService = estateService;
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            _estateService.GetEstates().ContinueWith(SetEstates);
         }
 
         private void SetEstates(Task<List<Estate>> task)
@@ -49,21 +66,33 @@ namespace RealEstateApp.ViewModels
         [RelayCommand]
         private void CreateEstate()
         {
-            Shell.Current.GoToAsync(nameof(UpsertPage));
+            Shell.Current.GoToAsync($"{nameof(UpsertPage)}?IsUpdate=false");
+        }
+
+        [RelayCommand(CanExecute = nameof(CanDelete))]
+        private async Task Delete(Estate estate)
+        {
+            _notDeleting = false;
+            await _estateService.DeleteEstateById(estate.Id);
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                _estates.Remove(estate);
+            });
+
+            _estates.Remove(estate);
+            _notDeleting = true;
+        }
+
+        private bool CanDelete()
+        {
+            return _notDeleting;
         }
 
         [RelayCommand]
-        private void Delete()
+        private void Edit(Estate estate)
         {
-            System.Diagnostics.Debug.WriteLine("a");
-            //_estateService.DeleteEstateById(estate.Id);
-            //_estates.Remove(estate);
+            Shell.Current.GoToAsync($"{nameof(UpsertPage)}?EstateId={estate.Id}&IsUpdate=true");
         }
-
-        //[RelayCommand]
-        //private void Edit()
-        //{
-
-        //}
     }
 }

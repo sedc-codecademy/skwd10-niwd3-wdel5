@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealEstateApp.Views.UpsertPage"
              ControlTemplate="{StaticResource backgroundTemplate}"
-             Title="UpsertPage">
+             xmlns:viewmodels="clr-namespace:RealEstateApp.ViewModels"
+             x:DataType="viewmodels:UpsertViewModel"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{Binding ActionIcon}"
+                     Command="{Binding UpsertCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <Style x:Key="whiteBackgroundEntry" TargetType="Entry">
             <Setter Property="BackgroundColor" Value="White"/>
@@ -18,24 +24,33 @@
                BackgroundColor="#80FFFFFF">
             <VerticalStackLayout Spacing="10">
                 <Entry Placeholder="Estate Name"
-                           Style="{StaticResource whiteBackgroundEntry}"/>
+                           Style="{StaticResource whiteBackgroundEntry}"
+                       Text="{Binding EstateName}"/>
                 <Entry Placeholder="Address"
-                           Style="{StaticResource whiteBackgroundEntry}"/>
+                           Style="{StaticResource whiteBackgroundEntry}"
+                       Text="{Binding Address}"/>
                 <Entry Placeholder="Price"
-                           Style="{StaticResource numericEntry}"/>
+                           Style="{StaticResource numericEntry}"
+                       Text="{Binding Price}"/>
                 <Entry Placeholder="Room Number"
-                           Style="{StaticResource numericEntry}"/>
+                           Style="{StaticResource numericEntry}"
+                       Text="{Binding RoomNumber}"/>
                 <Entry Placeholder="Bathrooms"
-                           Style="{StaticResource numericEntry}"/>
+                           Style="{StaticResource numericEntry}"
+                       Text="{Binding BathroomNumber}"/>
                 <Entry Placeholder="Area"
-                           Style="{StaticResource numericEntry}"/>
+                           Style="{StaticResource numericEntry}"
+                       Text="{Binding Area}"/>
                 <Entry Placeholder="Contact Name"
-                           Style="{StaticResource whiteBackgroundEntry}"/>
+                           Style="{StaticResource whiteBackgroundEntry}"
+                       Text="{Binding ContactPersonName}"/>
                 <Entry Placeholder="Contact Phone"
                            Style="{StaticResource whiteBackgroundEntry}"
-                           Keyboard="Telephone"/>
+                           Keyboard="Telephone"
+                       Text="{Binding ContactPersonPhone}"/>
                 <Entry Placeholder="Contact Email"
-                           Style="{StaticResource whiteBackgroundEntry}"/>
+                           Style="{StaticResource whiteBackgroundEntry}"
+                       Text="{Binding ContactPersonEmail}"/>
             </VerticalStackLayout>
         </Frame>
     </ScrollView>
