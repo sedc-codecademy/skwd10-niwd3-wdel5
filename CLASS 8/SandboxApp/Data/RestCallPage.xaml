@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SandboxApp.Data.RestCallPage"
+             xmlns:data="clr-namespace:SandboxApp.Data"
+             x:DataType="data:RestViewModel"
+             Title="RestCallPage">
+    <VerticalStackLayout>
+        <Button Text="GET"
+                Command="{Binding GetCommand}"/>
+        <ScrollView>
+            <Label Text="{Binding ResultLabel}"/>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
