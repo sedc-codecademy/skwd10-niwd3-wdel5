@@ -1,29 +1,43 @@
-﻿namespace RealEstate.Api.Models
+﻿using Newtonsoft.Json;
+
+namespace RealEstate.Api.Models
 {
     public class Estate
     {
-        private long Id { get; set; }
+        [JsonProperty("id")]
+        public long Id { get; set; }
 
-        private string EstateName { get; set; }
+        [JsonProperty("estateName")]
+        public string? EstateName { get; set; }
 
-        private string ContactPersonName { get; set; }
+        [JsonProperty("contactPersonName")]
+        public string? ContactPersonName { get; set; }
 
-        private string ContactPersonPhone { get; set; }
+        [JsonProperty("contactPersonPhone")]
+        public string? ContactPersonPhone { get; set; }
 
-        private string ContactPersonEmail { get; set; }
+        [JsonProperty("contactPersonEmail")]
+        public string? ContactPersonEmail { get; set; }
 
-        private string Address  { get; set; }
+        [JsonProperty("address")]
+        public string? Address  { get; set; }
 
-        private int RoomNumber  { get; set; }
+        [JsonProperty("roomNumber")]
+        public int RoomNumber  { get; set; }
 
-        private int BathroomNumber { get; set; }
+        [JsonProperty("bathroomNumber")]
+        public int BathroomNumber { get; set; }
 
-        private int Area { get; set; }
+        [JsonProperty("area")]
+        public int Area { get; set; }
 
-        private int Price { get; set; }
+        [JsonProperty("price")]
+        public int Price { get; set; }
 
-        private string Photo { get; set; }
+        [JsonProperty("photo")]
+        public string? Photo { get; set; }
 
-        private List<string> Photos { get; set; }
+        [JsonProperty("photos")]
+        public List<string>? Photos { get; set; }
     }
 }

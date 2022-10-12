@@ -8,10 +8,10 @@ namespace RealEstate.Api.Interfaces
 
         Task<Estate> GetEstateById(long id);
 
-        Task<bool> DeleteEstateById(long id);
+        Task<Estate> Create(Estate estate);
 
         Task<Estate> Update(Estate estate);
 
-        Task<Estate> Create(Estate estate);
+        Task<bool> DeleteEstateById(long id);
     }
 }

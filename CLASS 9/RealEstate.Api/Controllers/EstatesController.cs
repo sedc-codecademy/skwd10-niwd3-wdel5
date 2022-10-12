@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RealEstate.Api.Interfaces;
+using RealEstate.Api.Models;
 
 namespace RealEstate.Api.Controllers
 {
@@ -15,7 +16,7 @@ namespace RealEstate.Api.Controllers
         }
 
         [HttpGet]
-        public  async Task<IActionResult> Estates()
+        public async Task<IActionResult> Estates()
         {
             try
             {
@@ -33,6 +34,46 @@ namespace RealEstate.Api.Controllers
             try
             {
                 return Ok(await _estatesService.GetEstateById(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] Estate estate)
+        {
+            try
+            {
+                return Ok(await _estatesService.Create(estate));
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPatch]
+        public async Task<IActionResult> Update([FromBody] Estate estate)
+        {
+            try
+            {
+                return Ok(await _estatesService.Update(estate));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(long id)
+        {
+            try
+            {
+                return Ok(await _estatesService.DeleteEstateById(id));
             }
             catch (Exception ex)
             {
