@@ -21,8 +21,10 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IEstateService, EstatesService>();
 		builder.Services.AddSingleton<IImageProvider, ImageProvider>();
 		builder.Services.AddSingleton<IRestService, RestService>();
+		builder.Services.AddSingleton<IMyPreferences, MyPreferences>();
+		builder.Services.AddSingleton<INavigationService, NavigationService>();
 
-		builder.Services.AddSingleton<LoginPage>();
+        builder.Services.AddSingleton<LoginPage>();
 		builder.Services.AddTransient<EstatesPage>();
 		builder.Services.AddTransient<EstateDetailsPage>();
 		builder.Services.AddTransient<UpsertPage>();

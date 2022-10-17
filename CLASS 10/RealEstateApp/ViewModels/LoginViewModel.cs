@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using RealEstateApp.Interfaces;
 
 namespace RealEstateApp.ViewModels
 {
@@ -7,6 +8,8 @@ namespace RealEstateApp.ViewModels
     {
         private const string PasswordValue = "123";
         public static readonly string IsLoggedInKey = "IsLoggedInKey";
+        private readonly IMyPreferences _preferences;
+        private readonly INavigationService _navigationService;
 
         [ObservableProperty]
         private string _username;
@@ -24,8 +27,8 @@ namespace RealEstateApp.ViewModels
                 && !string.IsNullOrEmpty(Password)
                 && Password == PasswordValue)
             {
-                Shell.Current.GoToAsync("//Estates");
-                Preferences.Default.Set(IsLoggedInKey, true); 
+                _navigationService.GoToAsync("//Estates");
+                _preferences.Set(IsLoggedInKey, true); 
             }
             else
             {
@@ -33,11 +36,17 @@ namespace RealEstateApp.ViewModels
             }
         }
 
-        public LoginViewModel()
+        public LoginViewModel(IMyPreferences preferences,
+            INavigationService navigationService)
         {
-            if (Preferences.Default.Get(IsLoggedInKey, false))
+            _preferences = preferences;
+            _navigationService = navigationService;
+
+            var a = _preferences.Get(IsLoggedInKey, false);
+
+            if (_preferences.Get(IsLoggedInKey, false))
             {
-                Shell.Current.GoToAsync("//Estates");
+                _navigationService.GoToAsync("//Estates");
             }
         }
     }
