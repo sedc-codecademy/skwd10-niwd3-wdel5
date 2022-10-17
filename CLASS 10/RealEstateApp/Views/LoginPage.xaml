@@ -26,15 +26,19 @@
                          Spacing="10"
                          Margin="20">
                 <Entry Placeholder="Username"
+                       AutomationId="Username"
                    BackgroundColor="White"
                        Text="{Binding Username}"/>
                 <Entry Placeholder="Password"
+                       AutomationId="Password"
                    BackgroundColor="White"
                        Text="{Binding Password}"
                IsPassword="True"/>
                 <Button Text="Login"
+                        AutomationId="LoginButton"
                         Command="{Binding LoginCommand}"/>
                 <Label Text="Invalid username or password"
+                       AutomationId="ErrorLabel"
                        IsVisible="{Binding NotValid}"
                        TextColor="Red"/>
             </VerticalStackLayout>

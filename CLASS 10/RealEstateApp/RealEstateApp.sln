@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateApp", "RealEstateApp.csproj", "{4E6417F0-6E18-466D-B25E-A1A776F86105}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.UnitTests", "..\RealEstate.UnitTests\RealEstate.UnitTests.csproj", "{BDCB0941-F28D-4872-A4E9-254EF7C93041}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.UnitTests", "..\RealEstate.UnitTests\RealEstate.UnitTests.csproj", "{BDCB0941-F28D-4872-A4E9-254EF7C93041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.UITests", "..\RealEstate.UITests\RealEstate.UITests.csproj", "{063847F7-A89D-4B5A-996F-34A45A2D7912}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{BDCB0941-F28D-4872-A4E9-254EF7C93041}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDCB0941-F28D-4872-A4E9-254EF7C93041}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDCB0941-F28D-4872-A4E9-254EF7C93041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{063847F7-A89D-4B5A-996F-34A45A2D7912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063847F7-A89D-4B5A-996F-34A45A2D7912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063847F7-A89D-4B5A-996F-34A45A2D7912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063847F7-A89D-4B5A-996F-34A45A2D7912}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
